@@ -1,0 +1,47 @@
+######### Text Classification using Sequence to Sequence Neural Network #####
+## Fake News Classification
+#### Code Structure:
+
+- API
+    - / and /index: README
+    - /start_training: Start training
+    - /single_news_prediction : Single news prediction 
+        - example: {"title":"Specter of Trump Loosens Tongues, if Not Purse Strings, in Silicon Valley" ,
+                    "text":"PALO ALTO, Calif.  —   After years of scorning the political process, Silicon Valley has leapt into the fray. The prospect of a President Donald J. Trump is pushing the tech community to move beyond its traditional role as donors and to embrace a new existence as agitators and activists. A distinguished "
+                    }
+    where input should be in json format
+    - /news_prediction: Multiple news prediction, 
+    Where input would read from file, path provided at time of request
+     if path not given then it would read input/test/* directory.
+    news file must contain title and text column in csv format.
+
+- Project:
+
+    - src: source directory
+        - engine.py: Main Python for training
+        - app.py: Flask based REST app for training and prediction
+        - fake_news_seq_classification.ipynb: Jupyter Notebook with all steps of sequence classification.
+    
+    - input: Input file directory
+        - fake-news : fakenews datasets
+            - train.csv
+            - test.csv
+            - submit.csv
+        - test: Testing directory for schedule Job
+            - text file with at least following attributes:
+                - Title, Text
+    
+    - output: Store output of Training and Test data
+        - store prediction in prediction.csv file
+    
+    - model: store trained model with different model_type
+        - model_type: SimpleRNN, GRU, LSTM
+        - image: Training history plot directory
+        - report.csv: model training report history.
+        
+    - resource: Store all resource for model training
+        - glove.6B
+        - notebook: notebook images
+        - others
+        
+        
